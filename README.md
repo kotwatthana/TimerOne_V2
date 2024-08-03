@@ -1,5 +1,3 @@
-# TimerOne_V2
-
 #TimerOne Library
 
 Paul Stoffregen's modified TimerOne.  This version provides 2 main benefits:
