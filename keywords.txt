@@ -2,6 +2,7 @@ Timer1	KEYWORD2
 TimerOne	KEYWORD1
 initialize	KEYWORD2
 frequency 	KEYWORD2
+pwminversion	pin10 KEYWORD2
 start	KEYWORD2
 stop	KEYWORD2
 restart	KEYWORD2

@@ -189,6 +189,10 @@ class TimerOne
 		initialize((clock / (frequency * clock)) * 1000);
 	}
 
+	void pwminversion(){
+		TCCR1A |= (1 << COM1B0);
+	}
+
     void initialize(unsigned long microseconds=1000000) __attribute__((always_inline)) {
 	TCCR1B = _BV(WGM13);        // set mode as phase and frequency correct pwm, stop the timer
 	TCCR1A = 0;                 // clear control register A 
