@@ -35,8 +35,15 @@ class TimerOne
 		unsigned int clock = F_CPU / 1000000;
 		initialize((clock / (frequency * clock)) * 1000);
 	}
-	void pwminversion(){
-		TCCR1A |= (1 << COM1B0);
+	void pwminversion(char pin){
+		if (pin == TIMER1_A_PIN) TCCR1A |= (1 << COM1A0);
+		#ifdef TIMER1_B_PIN
+		else if (pin == TIMER1_B_PIN) TCCR1A |= (1 << COM1B0);
+		#endif
+		#ifdef TIMER1_C_PIN
+		else if (pin == TIMER1_C_PIN) TCCR1C |= (1 << COM1C0);
+		#endif
+		//TCCR1A |= (1 << COM1B0);
 	}
     void initialize(unsigned long microseconds=1000000) __attribute__((always_inline)) {
 	TCCR1B = _BV(WGM13);        // set mode as phase and frequency correct pwm, stop the timer
